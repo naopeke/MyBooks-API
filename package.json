@@ -1,0 +1,23 @@
+{
+  "name": "mybooks-api",
+  "version": "1.0.0",
+  "description": "API of MyBooks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naopeke/MyBooks-API.git"
+  },
+  "author": "nao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naopeke/MyBooks-API/issues"
+  },
+  "homepage": "https://github.com/naopeke/MyBooks-API#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
