@@ -26,10 +26,9 @@ function getBooksParams(req, res){
     else
         respuesta = {error: true, codigo: 200, mensaje: 'El id de libro no existe'};
     res.send(respuesta);
-    }
+}
 
-// Si usa varios GET req en el mismo End-Point, solo ultimo sale. Para solucionar, usar end-points distintos o mergear los 2 métodos
-//router.get('/books', bookCtrl.getBookQuery); と router.get('/books', bookCtrl.getBook); のように同じエンドポイントに対して複数のGETリクエストを設定すると、最後に定義されたものが優先され、前のものは無視される
+
 function getBooks(req, res){
     if(!req.query.id){
         let respuesta;
@@ -51,7 +50,6 @@ function getBooks(req, res){
             res.send({ error: true, codigo: 200, mensaje: 'El parámetro "id" no se proporcionó en la consulta' });
         }
     }
-
 }
 
 
