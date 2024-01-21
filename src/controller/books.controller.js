@@ -16,19 +16,6 @@ let books = [
 ];
 
 
-
-function getBooksParams(req, res){
-    let respuesta;
-    let bookId = req.params.id_book;
-    let matchedBook = books.find(book => book.id_book === parseInt(bookId));
-    if (matchedBook != null && id === matchedBook.id_book)        
-        respuesta = {error: false, codigo: 200, mensaje: matchedBook};
-    else
-        respuesta = {error: true, codigo: 200, mensaje: 'El id de libro no existe'};
-    res.send(respuesta);
-}
-
-
 function getBooks(req, res){
     if(!req.query.id){
         let respuesta;
@@ -118,7 +105,6 @@ function errorBooks(req, res){
 }
 
 module.exports = {
-    getBooksParams,
     getBooks,
     postBooks,
     putBooks,
