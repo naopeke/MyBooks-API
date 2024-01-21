@@ -16,27 +16,30 @@ let books = [
 ];
 
 
+function getBooksParams(req, res){
+    let respuesta;
+    let bookId = req.params.id; 
+
+    if (books != null) {
+        let matchedBook = books.filter(book => book.id_book == bookId);
+        console.log(matchedBook);
+        if (matchedBook.length > 0) {
+            respuesta = {error: false, codigo: 200, data: matchedBook};
+        } else {
+            respuesta = {error: true, codigo: 200, mensaje: 'El id de libro no existe'};
+        }
+    }
+    res.send(respuesta);
+}
+
+
 function getBooks(req, res){
-    if(!req.query.id){
         let respuesta;
         if (books != null)
             respuesta = books;
         else
             respuesta = { error: true, codigo: 200, mensaje:'El libro no existe' };
         res.send(respuesta);  
-    } else {
-        let bookId = req.query.id;
-        if (bookId != null) {
-            let matchedBook = books.find(book => book.id_book == bookId);
-            if (matchedBook != null) {
-                res.send(matchedBook);
-            } else {
-                res.send({ error: true, codigo: 200, mensaje: 'No se encontraron libros con el ID especificado' });
-            }
-        } else {
-            res.send({ error: true, codigo: 200, mensaje: 'El parámetro "id" no se proporcionó en la consulta' });
-        }
-    }
 }
 
 
@@ -106,6 +109,7 @@ function errorBooks(req, res){
 
 module.exports = {
     getBooks,
+    getBooksParams,
     postBooks,
     putBooks,
     deleteBooks,
